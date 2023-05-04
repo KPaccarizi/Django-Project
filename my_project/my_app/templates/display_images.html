@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="author" content="KUjtesa"/>
+  <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+  <script src="{% static 'js/upload.js' %}" defer type="text/javascript"></script>
+
+  
+</head>
+<h2 style="color: white;">Books</h2>
+<div class="row">
+  {% for image in images %}
+    <div class="col-md-4" style="padding: 10px;">
+      <div class="image-container">
+        <img src="{{ image.docfile.url }}" alt="{{ image.docfile.name }}"  class="img-thumbnail image" onclick="openModal(this);">
+
+
+      </div>
+      <form method="post" action="{% url 'delete_image' image.pk %}" style="margin-top: 10px;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+  .image-container {
+    width: 100%;
+    padding-top: 75%; /* Adjust this value to change the aspect ratio */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" defer type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.1/dist/js/bootstrap.min.js" defer type="text/javascript"></script>
+<script src="{% static 'js/upload.js' %}" defer type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+
+{% endblock %}

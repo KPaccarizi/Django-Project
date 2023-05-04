@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 style="color: white;">Delete User Profile</h2>
+    <p style="color: white;">Are you sure you want to delete the user profile for "{{ object.username }}"?</p>
+    <form method="post" style="color: white;">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+        <a href="{% url 'user_profile_list' %}">Cancel</a>
+    </form>
+{% endblock %}

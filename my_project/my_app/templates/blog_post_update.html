@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 style="color: white;">Edit Blog Post &#128204;</h2>
+<form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="form-group" style="color: white;">
+      <label for="{{ form.title.id_for_label }}">Title:</label>
+      <input type="text" class="form-control" id="{{ form.title.id_for_label }}" name="{{ form.title.html_name }}" value="{{ form.title.value|default:'' }}" style="background-color: white; color: black; border:2px solid brown"  required>
+    </div>
+    <div class="form-group" style="color: white;">
+      <label for="{{ form.author.id_for_label }}">Author:</label>
+      <input type="text" class="form-control" id="{{ form.author.id_for_label }}" name="{{ form.author.html_name }}" value="{{ form.author.value|default:'' }}" style="background-color: white; color: black; border:2px solid brown" required>
+    </div>
+    <div class="form-group" style="color: white;">
+      <label for="{{ form.content.id_for_label }}">Content:</label>
+      <textarea class="form-control" id="{{ form.content.id_for_label }}" name="{{ form.content.html_name }}" rows="10"style="background-color: white; color: black; border:2px solid brown"  required>{{ form.content.value|default:'' }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+{% endblock %}

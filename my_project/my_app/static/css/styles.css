@@ -1,0 +1,53 @@
+/* Style the blog post container */
+.body{
+  background-color: #3b8d70;
+   color: white;
+
+}
+
+.blog-post {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the blog post title */
+.blog-post h2 {
+  margin-bottom: 10px;
+}
+
+/* Style the blog post author */
+.blog-post .text-muted {
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Style the blog post content */
+.blog-post p {
+  margin-bottom: 20px;
+}
+
+/* Style the Edit and Delete buttons */
+.blog-post .btn {
+  margin-right: 5px;
+}
+
+/* Add some space between the navbar and the content */
+main .container {
+  margin-top: 30px;
+}
+
+.navbar-custom {
+  background-color: #f9efef;
+}
+
+.navbar-light {
+  background-color: #023020;
+  color: #f6f6f6;
+}
+
+
+
+

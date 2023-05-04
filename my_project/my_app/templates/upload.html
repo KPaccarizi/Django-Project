@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 style="color: white;">Upload a Book &#128193; </h2>
+    <form method="post" enctype="multipart/form-data" style="color: white;">
+        {% csrf_token %}
+        <label for="id_docfile" class="fancy-input">Choose Files</label>
+        <input type="file" name="docfile" id="id_docfile" multiple required style="display: none;">
+        <div id="image-preview" style="display: flex; flex-wrap: wrap;"></div>
+        <button type="submit" class="fancy-button">Upload</button>
+    </form>
+
+    
+  
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const inputFile = document.querySelector("#id_docfile");
+  const previewContainer = document.getElementById("image-preview");
+
+  inputFile.addEventListener("change", function(event) {
+    previewContainer.innerHTML = "";
+
+    const files = event.target.files;
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (file.type.startsWith("image/")) {
+        const img = document.createElement("img");
+        img.src = URL.createObjectURL(file);
+
+        img.style.width = "250px";
+        img.style.height = "250px";
+        img.style.margin = "10px";
+        previewContainer.appendChild(img);
+      }
+    }
+  });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="blog-post" style="background-color: #e8d292; color:black;">
+  <h2>{{ blog_post.title }}</h2>
+  <h6  style="color: black;" >by {{ blog_post.author }}</h6>
+  <p>{{ blog_post.content }}</p>
+    <a href="{% url 'blog_post_update' pk=blog_post.pk %}" class="btn btn-warning">Edit</a>
+    <a href="{% url 'blog_post_delete' pk=blog_post.pk %}" class="btn btn-danger">Delete</a>
+  </div>
+{% endblock %}

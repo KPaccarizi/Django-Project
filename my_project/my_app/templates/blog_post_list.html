@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="author" content="KUjtesa"/>
+  <link rel="stylesheet" href="{% static 'css/blog_list1.css' %}">
+
+</head>
+<h2 style="color: white;">My Blog &#128204;</h2>
+<a href="{% url 'blog_post_create' %}" class="btn btn-primary mb-3">Add Book</a>
+
+  <div class="row">
+    {% for blog_post in blog_posts %}
+      <div class="col-md-4 mb-4">
+        <div class="card" style="background-color: white; color: black; border:2px solid white; border-style: double;  border-width: 5px;">
+          <div class="card-body">
+            <h5 class="card-title">{{ blog_post.title }} &#128214;</h5>
+            <h6  style="color:black">by {{ blog_post.author }} &#9997;</h6>
+            <p class="card-text">{{ blog_post.content|truncatewords:20 }}</p>
+           <p> <a href="https://www.panmacmillan.com/" title="Buy the book" style="color:black">Buy the Book </a> 💰</p>
+            <br>
+            <a href="{% url 'blog_post_detail' blog_post.pk %}" class="card-link">Read more</a>
+            <a href="{% url 'blog_post_update' blog_post.pk %}" class="card-link">Edit</a>
+            <a href="{% url 'blog_post_delete' blog_post.pk %}" class="card-link">Delete</a>
+
+
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

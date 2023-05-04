@@ -1,0 +1,16 @@
+.card {
+    background-color: rgb(238, 225, 180);
+    animation-name: example1;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  
+  }
+  
+  @keyframes example1 {
+    0%   {background-color: #a89e8e;}
+    25%   {background-color: #e8d292;}
+    50%  {background-color: rgb(231, 215, 160);}
+    100% {background-color: rgb(187, 181, 167);}
+  
+  }
+  

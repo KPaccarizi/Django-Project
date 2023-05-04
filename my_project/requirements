@@ -1,0 +1,4 @@
+django==4.0.0
+lxml==4.9.2
+python-docx==0.2.4
+Pillow==8.4.0
